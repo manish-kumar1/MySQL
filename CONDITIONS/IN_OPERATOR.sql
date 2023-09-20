@@ -1,0 +1,14 @@
+
+-- IN -> The MySQL IN condition is used to reduce the use of multiple OR conditions in a SELECT, INSERT, UPDATE and DELETE statement.
+
+-- SYNTAX
+
+SELECT *
+FROM STUDENT
+WHERE FIRSTNAME IN('VIRAT', 'MARK', 'ROHIT SHETHI', 'PETER');
+
+
+SELECT FIRSTNAME,FEES
+FROM STUDENT
+WHERE FEES IN(25000, 10000, 20000);
+

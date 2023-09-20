@@ -1,0 +1,61 @@
+CREATE TABLE STUDENT2(
+	ID INT NOT NULL UNIQUE,
+    NAME VARCHAR(30),
+    EMAIL VARCHAR(40),
+    AGE INT,
+    CITY VARCHAR(30)
+);
+INSERT INTO STUDENT2
+(ID, NAME, EMAIL, AGE, CITY)
+VALUES
+(1, 'Peter', 'peter@javatpoint.com', 22, 'Texas'),  
+(2, 'Suzi', 'suzi@javatpoint.com', 24, 'California'),  
+(3, 'Joseph', 'joseph@javatpoint.com', 23, 'Alaska');  
+
+
+-- INSERT INTO Student2 (ID, Name, Email, Age, City)  
+-- VALUES (1, 'Stephen', 'stephen@javatpoint.com', 22, 'Texas');   -- ERROR CODE: 1062. DUPLICATE ENTRY '1' FOR KEY STUDENT2.ID' 
+
+-- SHOW INDEXES FROM STUDENT2;
+
+
+-- If you want to define the unique key on multiple columns, use the query as below:
+
+CREATE TABLE STUDENT4(
+	STUD_ID INT,
+    ROLL_NO INT,
+    NAME VARCHAR(40) NOT NULL,
+    EMAIL VARCHAR(43),
+    AGE INT,
+    CITY VARCHAR(34),
+    CONSTRAINT UC_ROLL_NO_EMAIL UNIQUE(ROLL_NO, EMAIL)
+);
+
+SHOW INDEX FROM STUDENT4;
+
+
+/*
+DROP Unique Key -> 
+The ALTER TABLE statement also allows us to drop the unique key from the table. The following syntax is used to drop the unique key:
+
+SYNTAX -> 
+ALTER TBALE TABLE_NAME DROP CONSTRAINT CONSTRAINT_NAME;
+OR
+ALTER TABLE TABLE_NAME DROP CONSTRAINT CONSTRAINT_NAME UNIQUE(COLUMN_NAME....);  NOT WORKING
+*/
+
+ALTER TABLE STUDENT4 DROP CONSTRAINT UC_ROLL_NO_EMAIL;
+
+SHOW INDEXES FROM STUDENT3;
+
+
+/*
+ADD MULTIPLE UNIQUE KEY IN EXISTING TABLE
+
+SYNTAX ->
+ALTER TABLE TABLE_NAME ADD CONSTRAINT CONSTRAINT_NAME UNIQUE(COLUMN_NAME,.....);
+*/
+
+ALTER TABLE STUDENT4 ADD CONSTRAINT UINQUE_CONSTRAIT UNIQUE(STUD_ID, ROLL_NO, EMAIL);
+
+SHOW INDEXES FROM STUDENT4;

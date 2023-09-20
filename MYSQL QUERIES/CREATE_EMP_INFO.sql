@@ -1,0 +1,25 @@
+
+CREATE TABLE EMP_INFO(
+	ID INT NOT NULL AUTO_INCREMENT,
+    NAME VARCHAR(40),
+    EMAIL VARCHAR(40),
+    PHONE INT,
+    CITY VARCHAR(40),
+    WORKING_HOURS INT,
+    PRIMARY KEY(ID)
+);
+    
+INSERT INTO EMP_INFO VALUES
+(1, 'PETER', 'peter@gmail.com', 763207888, 'TEXAS', 12),
+(2, 'SUZI', 'suzi@gmail.com', 776484793, 'CALIFORNIA', 10),
+(3, 'JOSEPH', 'joseph@gmail.com', 768483785, 'ALASKA', 14),
+(4, 'ALEX', 'alex@gmail.com', 829204812, 'LOS ANGELES', 9),
+(5, 'MARK', 'mark@gmail.com', 841324643, 'WASHINGTON', 12),
+(6, 'STEPHEN', 'stephen@gmail.com', 984738573, 'NEY WORK', 10);
+
+SELECT *FROM EMP_INFO;
+
+SELECT NAME, CITY, SUM(WORKING_HOURS) AS "Total working hours"    
+FROM EMP_INFO    
+GROUP BY NAME     
+HAVING SUM(WORKING_HOURS) > 5;  
